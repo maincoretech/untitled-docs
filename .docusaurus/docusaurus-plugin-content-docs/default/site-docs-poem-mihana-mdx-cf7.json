@@ -1,0 +1,29 @@
+{
+  "id": "poem/mihana",
+  "title": "镜花",
+  "description": "by 2023 shiftz",
+  "source": "@site/docs/poem/mihana.mdx",
+  "sourceDirName": "poem",
+  "slug": "/poem/mihana",
+  "permalink": "/docs/poem/mihana",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/poem/mihana.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 0,
+  "frontMatter": {
+    "title": "镜花",
+    "sidebar_position": 0,
+    "sidebar_label": "镜花"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Hello",
+    "permalink": "/docs/intro"
+  },
+  "next": {
+    "title": "长江黄河，不会倒流",
+    "permalink": "/docs/poem/chang-jiang-huang-he-bu-hui-dao-liu"
+  }
+}

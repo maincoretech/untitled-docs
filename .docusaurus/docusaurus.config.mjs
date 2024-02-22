@@ -11,7 +11,7 @@ export default {
   "baseUrl": "/",
   "organizationName": "maincore_tech.",
   "projectName": "untitled-docs",
-  "onBrokenLinks": "throw",
+  "onBrokenLinks": "warn",
   "onBrokenMarkdownLinks": "warn",
   "i18n": {
     "defaultLocale": "zh-Hans",
@@ -21,6 +21,26 @@ export default {
     "path": "i18n",
     "localeConfigs": {}
   },
+  "plugins": [
+    "docusaurus-plugin-image-zoom"
+  ],
+  "themes": [
+    [
+      "/home/coder/project/untitled-docs/node_modules/@easyops-cn/docusaurus-search-local/dist/server/server/index.js",
+      {
+        "hashed": true,
+        "indexDocs": true,
+        "indexBlog": false,
+        "indexPages": true,
+        "removeDefaultStemmer": true,
+        "highlightSearchTermsOnTargetPage": true,
+        "language": [
+          "en",
+          "zh"
+        ]
+      }
+    ]
+  ],
   "presets": [
     [
       "classic",
@@ -29,12 +49,17 @@ export default {
           "sidebarPath": "./sidebars.js",
           "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/"
         },
-        "blog": {
-          "showReadingTime": true,
-          "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/"
-        },
+        "blog": false,
         "theme": {
           "customCss": "./src/css/custom.css"
+        },
+        "sitemap": {
+          "changefreq": "daily",
+          "priority": 0.5,
+          "ignorePatterns": [
+            "/tags/**"
+          ],
+          "filename": "sitemap.xml"
         }
       }
     ]
@@ -42,7 +67,7 @@ export default {
   "themeConfig": {
     "image": "img/docusaurus-social-card.jpg",
     "navbar": {
-      "title": "My Site",
+      "title": "UNtitled",
       "logo": {
         "alt": "My Site Logo",
         "src": "img/logo.svg"
@@ -53,16 +78,6 @@ export default {
           "sidebarId": "tutorialSidebar",
           "position": "left",
           "label": "Tutorial"
-        },
-        {
-          "to": "/blog",
-          "label": "Blog",
-          "position": "left"
-        },
-        {
-          "href": "https://github.com/facebook/docusaurus",
-          "label": "GitHub",
-          "position": "right"
         }
       ],
       "hideOnScroll": false
@@ -78,39 +93,16 @@ export default {
               "to": "/docs/intro"
             }
           ]
-        },
-        {
-          "title": "Community",
-          "items": [
-            {
-              "label": "Stack Overflow",
-              "href": "https://stackoverflow.com/questions/tagged/docusaurus"
-            },
-            {
-              "label": "Discord",
-              "href": "https://discordapp.com/invite/docusaurus"
-            },
-            {
-              "label": "Twitter",
-              "href": "https://twitter.com/docusaurus"
-            }
-          ]
-        },
-        {
-          "title": "More",
-          "items": [
-            {
-              "label": "Blog",
-              "to": "/blog"
-            },
-            {
-              "label": "GitHub",
-              "href": "https://github.com/facebook/docusaurus"
-            }
-          ]
         }
       ],
-      "copyright": "Copyright © 2024 My Project, Inc. Built with Docusaurus."
+      "copyright": "by 2024 maincore_tech. Built with Docusaurus."
+    },
+    "zoom": {
+      "selector": ".markdown > img",
+      "background": {
+        "light": "#A3E4FF",
+        "dark": "333333"
+      }
     },
     "prism": {
       "theme": {
@@ -217,73 +209,16 @@ export default {
       },
       "darkTheme": {
         "plain": {
-          "color": "#F8F8F2",
-          "backgroundColor": "#282A36"
+          "color": "#9CDCFE",
+          "backgroundColor": "#1E1E1E"
         },
         "styles": [
           {
             "types": [
-              "prolog",
-              "constant",
-              "builtin"
+              "prolog"
             ],
             "style": {
-              "color": "rgb(189, 147, 249)"
-            }
-          },
-          {
-            "types": [
-              "inserted",
-              "function"
-            ],
-            "style": {
-              "color": "rgb(80, 250, 123)"
-            }
-          },
-          {
-            "types": [
-              "deleted"
-            ],
-            "style": {
-              "color": "rgb(255, 85, 85)"
-            }
-          },
-          {
-            "types": [
-              "changed"
-            ],
-            "style": {
-              "color": "rgb(255, 184, 108)"
-            }
-          },
-          {
-            "types": [
-              "punctuation",
-              "symbol"
-            ],
-            "style": {
-              "color": "rgb(248, 248, 242)"
-            }
-          },
-          {
-            "types": [
-              "string",
-              "char",
-              "tag",
-              "selector"
-            ],
-            "style": {
-              "color": "rgb(255, 121, 198)"
-            }
-          },
-          {
-            "types": [
-              "keyword",
-              "variable"
-            ],
-            "style": {
-              "color": "rgb(189, 147, 249)",
-              "fontStyle": "italic"
+              "color": "rgb(0, 0, 128)"
             }
           },
           {
@@ -291,15 +226,126 @@ export default {
               "comment"
             ],
             "style": {
-              "color": "rgb(98, 114, 164)"
+              "color": "rgb(106, 153, 85)"
             }
           },
           {
             "types": [
-              "attr-name"
+              "builtin",
+              "changed",
+              "keyword",
+              "interpolation-punctuation"
             ],
             "style": {
-              "color": "rgb(241, 250, 140)"
+              "color": "rgb(86, 156, 214)"
+            }
+          },
+          {
+            "types": [
+              "number",
+              "inserted"
+            ],
+            "style": {
+              "color": "rgb(181, 206, 168)"
+            }
+          },
+          {
+            "types": [
+              "constant"
+            ],
+            "style": {
+              "color": "rgb(100, 102, 149)"
+            }
+          },
+          {
+            "types": [
+              "attr-name",
+              "variable"
+            ],
+            "style": {
+              "color": "rgb(156, 220, 254)"
+            }
+          },
+          {
+            "types": [
+              "deleted",
+              "string",
+              "attr-value",
+              "template-punctuation"
+            ],
+            "style": {
+              "color": "rgb(206, 145, 120)"
+            }
+          },
+          {
+            "types": [
+              "selector"
+            ],
+            "style": {
+              "color": "rgb(215, 186, 125)"
+            }
+          },
+          {
+            "types": [
+              "tag"
+            ],
+            "style": {
+              "color": "rgb(78, 201, 176)"
+            }
+          },
+          {
+            "types": [
+              "tag"
+            ],
+            "languages": [
+              "markup"
+            ],
+            "style": {
+              "color": "rgb(86, 156, 214)"
+            }
+          },
+          {
+            "types": [
+              "punctuation",
+              "operator"
+            ],
+            "style": {
+              "color": "rgb(212, 212, 212)"
+            }
+          },
+          {
+            "types": [
+              "punctuation"
+            ],
+            "languages": [
+              "markup"
+            ],
+            "style": {
+              "color": "#808080"
+            }
+          },
+          {
+            "types": [
+              "function"
+            ],
+            "style": {
+              "color": "rgb(220, 220, 170)"
+            }
+          },
+          {
+            "types": [
+              "class-name"
+            ],
+            "style": {
+              "color": "rgb(78, 201, 176)"
+            }
+          },
+          {
+            "types": [
+              "char"
+            ],
+            "style": {
+              "color": "rgb(209, 105, 105)"
             }
           }
         ]
@@ -341,8 +387,6 @@ export default {
     "static"
   ],
   "customFields": {},
-  "plugins": [],
-  "themes": [],
   "scripts": [],
   "headTags": [],
   "stylesheets": [],
